@@ -15,8 +15,11 @@
  */
 package com.example.android.miwok;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,5 +29,53 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        TextView numbers = (TextView)findViewById(R.id.numbers);
+
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,NumbersActivity.class));
+            }
+        });
+
+        TextView colors = (TextView)findViewById(R.id.colors);
+        colors.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ColorsActivity.class));
+            }
+        });
+
+        TextView family = (TextView)findViewById(R.id.family);
+        family.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FamilyActivity.class));
+            }
+        });
+
+        TextView phrases = (TextView)findViewById(R.id.phrases);
+        phrases.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PhrasesActivity.class));
+            }
+        });
     }
+
+
+
+    /*start an Activity by using an Intent
+        An intent is an abstract description of an operation to be performed.  It
+        can be used with {@link Context#startActivity(Intent) startActivity} to
+        launch an {@link android.app.Activity}*/
+//    public void openNumbersActivity(View  view){
+//
+//        startActivity(new Intent(this, ColorsActivity.class));
+//    }
+
 }
