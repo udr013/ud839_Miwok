@@ -14,16 +14,16 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_words);
 //        String[] numbers = new String[10];
         ArrayList<Word> numbers = new ArrayList<>();
-        numbers.add(new Word("One", "Lutti"));
-        numbers.add(new Word("Two","Otiiko"));
-        numbers.add(new Word("Three","Tolukoosu"));
-        numbers.add(new Word("Four", "oyyisa"));
-        numbers.add(new Word("Five", "massokka"));
-        numbers.add(new Word("Six", "temmokka"));
-        numbers.add(new Word("Seven", "kenakaku"));
-        numbers.add(new Word("Eight","kawinta"));
-        numbers.add(new Word("Nine", "wo'e"));
-        numbers.add(new Word("Ten", "na'aacha"));
+        numbers.add(new Word("One", "Lutti", R.drawable.number_one));
+        numbers.add(new Word("Two","Otiiko", R.drawable.number_two));
+        numbers.add(new Word("Three","Tolukoosu", R.drawable.number_three));
+        numbers.add(new Word("Four", "oyyisa", R.drawable.number_four));
+        numbers.add(new Word("Five", "massokka", R.drawable.number_five));
+        numbers.add(new Word("Six", "temmokka", R.drawable.number_six));
+        numbers.add(new Word("Seven", "kenakaku", R.drawable.number_seven));
+        numbers.add(new Word("Eight","kawinta", R.drawable.number_eight));
+        numbers.add(new Word("Nine", "wo'e", R.drawable.number_nine));
+        numbers.add(new Word("Ten", "na'aacha", R.drawable.number_ten));
 
         /**
          * An ArrayAdapter knows how to make a list item View for the ListView and reuses a view that's no longer visible
@@ -35,7 +35,7 @@ public class NumbersActivity extends AppCompatActivity {
 
         //the dividers are included in listview, which can be styled by changing the xml
         ListView listView = (ListView) findViewById(R.id.wordsList);
-
+        listView.setBackgroundColor(getResources().getColor(R.color.category_numbers));
         listView.setAdapter(itemsAdapter);
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The

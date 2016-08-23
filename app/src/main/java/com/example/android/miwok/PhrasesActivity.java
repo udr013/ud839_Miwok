@@ -29,7 +29,7 @@ public class PhrasesActivity extends AppCompatActivity {
 
 
         ListView listView = (ListView) findViewById(R.id.wordsList);
-
+        listView.setBackgroundColor(getResources().getColor(R.color.category_phrases));
         listView.setAdapter(itemsAdapter);
     }
 }

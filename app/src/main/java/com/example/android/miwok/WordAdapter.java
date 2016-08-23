@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -50,7 +51,16 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
         // Get the {@link word} object located at this position in the list
         Word currentWord = getItem(position);
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.iconImage);
 
+        if(currentWord.getImageResourceId()!=0) {
+            imageView.setImageResource(currentWord.getImageResourceId());
+            //we need to set it on VISIBLE because convertView could be set to GONE previously
+            imageView.setVisibility(View.VISIBLE);
+        }else{
+            //
+            imageView.setVisibility(View.GONE);
+        }
         // Find the TextView in the list_item.xml layout with the ID version_name
         TextView defaulTextView = (TextView) listItemView.findViewById(R.id.default_textview);
         // Get the version name from the current word object and

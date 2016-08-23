@@ -14,20 +14,20 @@ public class ColorsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_words);
 
         ArrayList<Word> words = new ArrayList<>();
-        words.add(new Word("Red", "Wetetti"));
-        words.add(new Word("Green","Chokokki"));
-        words.add(new Word("Brown","Takaakki"));
-        words.add(new Word("Gray", "Topoppi"));
-        words.add(new Word("Black", "kululli"));
-        words.add(new Word("White", "Kelelli"));
-        words.add(new Word("Dusty yellow", "Topiisә"));
-        words.add(new Word("Mustard yellow","Chiwiiṭә"));
+        words.add(new Word("Red", "Wetetti", R.drawable.color_red));
+        words.add(new Word("Green","Chokokki", R.drawable.color_green));
+        words.add(new Word("Brown","Takaakki", R.drawable.color_brown));
+        words.add(new Word("Gray", "Topoppi", R.drawable.color_gray));
+        words.add(new Word("Black", "kululli", R.drawable.color_black));
+        words.add(new Word("White", "Kelelli", R.drawable.color_white));
+        words.add(new Word("Dusty yellow", "Topiisә", R.drawable.color_dusty_yellow));
+        words.add(new Word("Mustard yellow","Chiwiiṭә", R.drawable.color_mustard_yellow));
 
         WordAdapter itemsAdapter = new WordAdapter(this,words);
 
 
         ListView listView = (ListView) findViewById(R.id.wordsList);
-
+        listView.setBackgroundColor(getResources().getColor(R.color.category_colors));
         listView.setAdapter(itemsAdapter);
     }
 }

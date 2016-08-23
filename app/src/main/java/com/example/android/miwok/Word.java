@@ -13,7 +13,7 @@ public class Word {
        this.miwokWord = miwokWord;
     }
 
-    public Word(int imageResourceId, String defaultWord, String miwokWord) {
+    public Word(String defaultWord, String miwokWord, int imageResourceId) {
         this.imageResourceId = imageResourceId;
         this.defaultWord = defaultWord;
         this.miwokWord = miwokWord;
