@@ -31,11 +31,11 @@ public class NumbersActivity extends AppCompatActivity {
          */
 
 
-        WordAdapter itemsAdapter = new WordAdapter(this,numbers);
+        WordAdapter itemsAdapter = new WordAdapter(this,numbers, R.color.category_numbers);
 
         //the dividers are included in listview, which can be styled by changing the xml
         ListView listView = (ListView) findViewById(R.id.wordsList);
-        listView.setBackgroundColor(getResources().getColor(R.color.category_numbers));
+//        listView.setBackgroundColor(getResources().getColor(R.color.category_numbers));
         listView.setAdapter(itemsAdapter);
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The

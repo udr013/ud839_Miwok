@@ -1,6 +1,7 @@
 package com.example.android.miwok;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 * */
 public class WordAdapter extends ArrayAdapter<Word> {
 
+    private int ColorResourcId;
+
     /**
      * This is our own custom constructor (it doesn't mirror a superclass constructor).
      * The context is used to inflate the layout file, and the list is the data we want
@@ -24,12 +27,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
      * @param context        The current context. Used to inflate the layout file.
      * @param numberWords A List of AndroidFlavor objects to display in a list
      */
-    public WordAdapter(Context context, ArrayList<Word> numberWords) {
+    public WordAdapter(Context context, ArrayList<Word> numberWords,int ColorResourceId) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
         // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
         // going to use this second argument, so it can be any value. Here, we used 0.
         super(context,0, numberWords);
+        this.ColorResourcId = ColorResourceId;
     }
 
     /**
@@ -70,8 +74,15 @@ public class WordAdapter extends ArrayAdapter<Word> {
         TextView miwokTextView = (TextView) listItemView.findViewById(R.id.miwok_textview);
         miwokTextView.setText(currentWord.getMiwokWord());
 
-        // Return the whole list item layout (containing 2 TextViews)
-        // so that it can be shown in the ListView
+        // Set the theme color for the list item
+        View textContainer = listItemView.findViewById(R.id.text_container);
+        // Find the color that the resource ID maps to
+        int color = ContextCompat.getColor(getContext(),ColorResourcId);
+        // Set the background color of the text container View
+        textContainer.setBackgroundColor(color);
+
+        // Return the whole list item layout (containing 2 TextViews) so that it can be shown in
+        // the ListView.
         return listItemView;
     }
 }
