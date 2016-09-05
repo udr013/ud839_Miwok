@@ -17,7 +17,7 @@ import java.util.ArrayList;
 * */
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    private int ColorResourcId;
+    private int ColorResourceId;
 
     /**
      * This is our own custom constructor (it doesn't mirror a superclass constructor).
@@ -33,7 +33,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
         // going to use this second argument, so it can be any value. Here, we used 0.
         super(context,0, numberWords);
-        this.ColorResourcId = ColorResourceId;
+        this.ColorResourceId = ColorResourceId;
     }
 
     /**
@@ -75,9 +75,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
         miwokTextView.setText(currentWord.getMiwokWord());
 
         // Set the theme color for the list item
-        View textContainer = listItemView.findViewById(R.id.text_container);
+        View textContainer = listItemView.findViewById(R.id.textContainer);
         // Find the color that the resource ID maps to
-        int color = ContextCompat.getColor(getContext(),ColorResourcId);
+        int color = ContextCompat.getColor(getContext(),ColorResourceId);
         // Set the background color of the text container View
         textContainer.setBackgroundColor(color);
 

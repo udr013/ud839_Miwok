@@ -11,7 +11,7 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_words);
+        setContentView(R.layout.word_list);
 //        String[] numbers = new String[10];
         ArrayList<Word> numbers = new ArrayList<>();
         numbers.add(new Word("One", "Lutti", R.drawable.number_one));
