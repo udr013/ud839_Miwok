@@ -5,16 +5,19 @@ package com.example.android.miwok;
  */
 public class Word {
     private int  imageResourceId;
+    private int  audioResourceId;
     private String defaultWord;
     private String miwokWord;
 
-    public Word(String defaultWord, String miwokWord) {
+    public Word(String defaultWord, String miwokWord, int audioResourceId) {
         this.defaultWord = defaultWord;
        this.miwokWord = miwokWord;
+        this.audioResourceId = audioResourceId;
     }
 
-    public Word(String defaultWord, String miwokWord, int imageResourceId) {
+    public Word(String defaultWord, String miwokWord, int imageResourceId, int audioResourceId) {
         this.imageResourceId = imageResourceId;
+        this.audioResourceId = audioResourceId;
         this.defaultWord = defaultWord;
         this.miwokWord = miwokWord;
     }
@@ -41,5 +44,13 @@ public class Word {
 
     public void setMiwokWord(String miwokWord) {
         this.miwokWord = miwokWord;
+    }
+
+    public int getAudioResourceId() {
+        return audioResourceId;
+    }
+
+    public void setAudioResourceId(int audioResourceId) {
+        this.audioResourceId = audioResourceId;
     }
 }
