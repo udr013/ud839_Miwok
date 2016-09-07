@@ -13,6 +13,13 @@ public class FamilyActivity extends AppCompatActivity {
 
     private MediaPlayer m;
 
+    private MediaPlayer.OnCompletionListener myOnCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,19 +45,13 @@ public class FamilyActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                releaseMediaPlayer();
                 Word word = words.get(position);
                 m = MediaPlayer.create(FamilyActivity.this, word.getAudioResourceId());
                 m.start();
                 m.setOnCompletionListener(myOnCompletionListener);
 
             }
-
-            private MediaPlayer.OnCompletionListener myOnCompletionListener = new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    releaseMediaPlayer();
-                }
-            };
         });
 
 

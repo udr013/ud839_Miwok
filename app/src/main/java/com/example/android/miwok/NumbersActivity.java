@@ -12,6 +12,13 @@ import java.util.ArrayList;
 public class NumbersActivity extends AppCompatActivity {
 
     private MediaPlayer m;
+    //globel to decrease mem use, now we can use it everytime without needing to create a new object everytime
+    private MediaPlayer.OnCompletionListener myOnCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
+        }
+    };
 
 
 
@@ -66,13 +73,6 @@ public class NumbersActivity extends AppCompatActivity {
                 m.setOnCompletionListener(myOnCompletionListener);
 
             }
-
-            private MediaPlayer.OnCompletionListener myOnCompletionListener = new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    releaseMediaPlayer();
-                }
-            };
         });
 
 
